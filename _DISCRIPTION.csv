@@ -1,0 +1,104 @@
+﻿Variable Label,Variable Name,Unit of Measure (when applicable),Variable class,Variable Description
+EquableID,EquableID,,string,"A 7 digit Identification code that can be used as a key for merges/matching/relational purposes as needed.  The exact naming conventions for each plan are detailed in the ""EquableID Naming Conventions"" tab of the master database"
+System_Name,System_Name,,string,"Name of the Retirement System in which the various State and Local Retirement Plans Exist.  In some cases, this will be the same as the Name of the Retirement Plan (Ex. Wyoming Retirement System is the name of the overarching retirement system as well as the name of the specific plan in the database (even though it is essentially the Wyoming Public Employees Retirement Plan).  
+Alternatively, there are instances where the System contains several different plans within it (Ex. Kansas Public Employees Retirement System has sub plans for Schools, State, Local, Police & Fire, and Judges. Each of these is its own Retirement Plan and has its own listing in the database, however, they are also all part of the Kansas Public Employees Retirement System, and would be aggregated as such for any system level analyses)."
+Plan_FullName,Plan_FullName,,string,"The Full Name of the Retirement Plan.  Some of these can get a bit long, but they are useful for distinguishing the Indiana Teacher Retirement Fund - 1996 Account from the Indiana Teacher Retirement Fund - Pre-1996 Account and the like."
+Plan_InternalName,Plan_InternalName,,string,"This is the internal Equable name used for referring to the different plans.  It is shorter than the Plan FullName for efficiency, but longer than the Shorthand for descriptive purposes"
+Plan_Shorthand,Plan_Shorthand,,string,"This is the plan shorthand name.  This is particularly useful for analyses and vizualizations, as each name is typically several characters shorter than any other of the Plan Name variables.  This does end up saving some spacetime."
+SSA,Social Security Administration Coverage,,string,This variable indicates whether or not plan members are covered by social security in addition to their retirement plan.
+SSANotes,Notes about Social Security Administration Coverage,,string,This variable contains additional information about social security coverage for plan members as necessary
+Job_Covers,Job_Covers,,string,"This variable indicates what types of occupations are covered by a given plan.  There are 13 different job covers, of which the first 8 are unique job areas:
+1. All Categories (this is for plans that have all of the other job types covered)
+2. Elected (For Elected officials, see Arizona EORP)
+3. Higher-Ed (Universities, see Illinois State University Retirement System)
+4. Judges (see California Judges Retirement Fund 2)
+5. Local (For local or municipal plans, see Connecticut Municipal Employees Retirement System)
+6. Public Safety (For Public Safety, Police, Firefighers, Police&Fire, Law Enforcement, Corrections/Custodial Officers, and Department of Transportation and Highway Police)
+ 7. Public School (For Teachers, Schools, School Employees, and Public Schools)
+8. State (For State Plans)
+And the remaining 5 are combinations of the above 8:
+9. State&Local (Alaska PERS only)
+10. State, Local (All of the other State & Local Plans, typically PERS or PERFs of some type)
+11. State, Local, Public Safety (Only Montana PERS and Tennessee PERP)
+12. State, Local, Public School (ASRS, CalPERS, Nevada PERS-R, SRCS, URS)
+13. State, Public School (Delaware, Maine SETP, NC TSERS)"
+StateAbbrev,StateAbbrev,,string,English 2 character abbreviation for each State
+StateName,StateName,,string,The full name of the state in which the retirement plan is located
+GovtName,GovtName,,string,"The name of the government body in charge of the retirement plan.  Is identical to the State Name for State plans (with the exception of Colorado PERA - Denver Public Schools), but will be different from State Name for Municipal plans."
+ActRptDate,ActRptDate,,date,The date on which the actuarial valuation was conducted and the actuarial report was released
+DateFYE,DateFYE,,date,The date on which the governing body for the plan considers the Fiscal Year to close.
+Month,Month,,numeric,"The month, in numeric form, in which the Fiscal Year ends for a particular plan"
+Year,Year,,numeric,The Year for which all of the data applies.
+ValReport,Val Report,,binary,"Do we have the Actuarial Valuation Report for this year (Binary Yes/No, scored as 1/0)"
+ACFR,ACFR,,binary,"Do we have the Comprehensive Annual Financial Report for this year (Binary Yes/No, scored as 1/0)"
+DocumentNotes,Document Notes,,string,"Any notes about the plan documents, such as which ones are missing, when the next one is expected to be released, etc"
+MiscellaneousNotes,Miscellaneous Notes,,string,Other miscellaneous notes not captured in the documentation
+Mem_NC,Member NC,,percentage,Member Normal Cost expressed as a percentage of covered payroll
+Mem_UAAL,Member UAAL,,percentage,Member unfunded actuarial accrued liability expressed as a percentage of covered payroll
+Mem_Tot,Total Member Rate,,percentage,Total Member contribution rate (Member NC + Member UAAL) expressed as a percentage of covered payroll
+Emp_NC,Employer NC,,percentage,Employer Normal Cost expressed as a percentage of covered payroll
+Emp_UAAL,Employer UAAL,,percentage,Employer unfunded actuarial accrued liability expressed as a percentage of covered payroll
+Emp_Tot,Total Employer Rate,,percentage,Total Employer contribution rate (Employer NC + Employer UAAL) expressed as a percentage of covered payroll
+NC_Tot,Total Normal Cost,,percentage,Total Normal Cost expressed as a percentage of covered payroll
+UAAL_Tot,Total UAAL,,percentage,Total Unfunded Actuarial Accrued Liability expressed as a percentage of covered payroll
+ AVA ,Actuarial Value of Assets,raw dollars,numeric,"The value of cash, investments, and other property belonging to a pension plan, as used by the actuary for the purposes of an actuarial valuation"
+ AAL ,Actuarial Accrued Liability,raw dollars,numeric,"The portion, as determined by a particular Actuarial Cost Method, of the Actuarial Present Value of pension plan benefits and expenses which is nnot provided for by future Normal Costs"
+ UAAL ,Unfunded Actuarial Accrued Liability,raw dollars,numeric,The excess of the Actuarial Accrued Liability of the Actuarial Value of Assets
+FundedRatio_Actuarial,Actuarial Funded Ratio,,percentage,The ratio of Actuarial Value of Assets over the Actuarial Accrued Liability for a plan for a given year
+ MVA ,Market Value of Assets,raw dollars,numeric,"The value of assets, investments, and other property belonging to a pension plan, on a market-value valuation basis."
+ CoveredPayroll_SFP ,Covered Payroll as reported in the Schedule of Funding Progress,raw dollars,numeric,Compenstation paid to all active members on which contributions are calculated.  Can differ from Active Member Salary.  This value in particular is taken from the Schedule of Funding Progress from a given plan + year's Actuarial Valuation 
+ CoveredPayroll_SEC ,Covered Payroll as reported in the Schedule of Employer Contributions,raw dollars,numeric,Compensation paid to all active members on which contributions are calculated.  Can differ from Active Member Salary. This particular value is taken from the Schedule of Employer Contributions from a given plan + year's CAFR.
+ ActiveMemberSalaries ,Annual Salaries of All Active Members,raw dollars,numeric,Compenstation paid to all active members.
+ TPL ,Total Pension Liability,raw dollars,numeric,The present value of projected benefit payments to employees based on their past service
+ FNP ,Fiduciary Net Position,raw dollars,numeric,"Assets set aside and restrited to paying benefits to current employees, retirees, and their beneficiaries"
+ NPL ,Net Pension Liability,raw dollars,numeric,TPL - FNP
+ARR,Assumed Rate of Return,,percentage,An educated guess by the plan's actuarial firm on how much a plan believes they can earn by investing its plan contributions. Please see :https://equable.org/pension-basics-assumed-rate-of-return/
+ReturnAsOf,Date on which the 1 Year investment Returns are as of,,date,This variable indicates the date on which the 1 year investment returns for a given year are as of.  This variable is only used for the most recent year when ROA data is collected from sources other than the ACFR
+ReturnClassification,Return Type Classification,,string,"This variable indicates the type of return that is entered in the 1 Year Return variable cell.  For plans with complete data for the year, this is either 1-Year Annualized or Fiscal Year to Date as of the Fiscal Year End Date.  For plans that only have preliminary returns, this can also be quarterly, calendar year to date, or year-to-date unspecified"
+Returns_1Year,1YearReturn,,percentage,Annualized 1 year investment returns
+Returns_3Year,3YearReturn,,percentage,Annualized 3 year investment returns
+Returns_5Year,5YearReturn,,percentage,Annualized 5 year investment returns
+Returns_10Year,10YearReturn,,percentage,Annualized 10 year investment returns
+EquityAllocationActual,EquityAllocationActual,,percentage,Percentage of total investments allocated to Public Equity 
+FixedIncomeAllocationActual,FixedIncomeAllocationActual,,percentage,Percentage of total investments allocated to Fixed Income/Debt Securities
+RealEstateAllocationActual,RealEstateAllocationActual,,percentage,percentage of total investment allocated to Real Estate
+AltMiscAllocationActual,AltMiscAllocationActual,,percentage,Percentage of total investment allocated to alternative or miscellaneous investments
+PrivateEquityAllocationActual,PrivateEquityAllocationActual,,percentage,Percentage of total investment allocated to Private Equity
+HedgeFundAllocationActual,HedgeFundAllocationActual,,percentage,"Percentage of total investment allocated to Hedge Funds, Risk-Diversifying Strategies, and Absolute Return"
+COMDAllocationActual,COMDAllocationActual,,percentage,Percentage of total investment allocated to Commodities
+CashAllocationActual,CashAllocationActual,,percentage,Percentage of total investment allocated to Cash or Short Term investments
+OtherAllocationActual,OtherAllocationActual,,percentage,"Percentage of total investment allocated to Other Investments, Derivatives, and other Financial instruments"
+AssetAllocationTotal,AssetAllocationTotal%,,percentage,"QC field, should total to 100%. Is the sum of the actual asset allocations for a given plan for a given year"
+DiscountRate,DiscountRate,,percentage,The interest rate used in discounted cash flow analysis to determine the present value of future cash flows.
+AmortPeriodR,Amortization Period,years,numeric,"How many years are remaining in the Amortization Period, for all UAAL.  Reported as the highest remaining duration of time for UAAL Amortization, is not the total Amortization Period"
+ ADEC ,Actuarially Determined Employer Contribution,raw dollars,numeric,"The sum of the Normal cost for benefits earned during the same fiscal year plus the unfunded liability payments to backfill funding shortfall that occurred over time.
+Prior to 2014, the values in this vector are predominantly the ARC, or Annual Required Contribution, as in most cases, the ADEC was not reported prior to the change in GASB reporting standards in 2014.  Some plans continue to report ARC even after 2014, and there are cases in which the ADEC != ARC.  In any instance where both the ADEC and ARC were available, the ADEC was preferred over the ARC."
+ADECasPercentofCoveredPayroll,Actuarially Determined Employer Contribution as a percent of Covered Payroll (SFP),,percentage,ADEC expressed as a percentage of covered payroll
+PaidContributionasPercentofCover,Paid Contributions as a percent of Covered Payroll (SFP),,percentage,Paid Contribution expressed as a percentage of covered payroll
+ RequiredEmployerContribution ,Required Employe Contribution,raw dollars,numeric,"Generally defined as the ADEC, however, there are instances where some plans have a contractually required contribution that is distinct from their ADEC. Should not be confused with the ARC, or Annual Required Contribution"
+ PaidEmployerContribution ,Paid Employer Contribution,raw dollars,numeric,The actual paid employer contribution for a given plan for a given year.  
+PercentReqContPaidContPaidAsPer,Percentage of ADEC Paid,,percentage,The Ratio of Paid Employer Contribution to ADEC
+PayrollGrowthAssumption,Payroll Growth Assumption,,percentage,This variable is the payroll growth assumption used bythe actuaries to calculate both payroll growth and often times the amortization of unfunded liabilities and amortization period
+InflationAssumption_GASB,Inflation Assumption,,percentage,The assumed inflation rate used by the plan
+ TotalBenefits ,Total Benefits,raw dollars,numeric,"The total value of all benefits paid to all beneficiaries for a given plan for a given year.  Does not include refunds or expenses, is solely benefits (of any sort)"
+ RetirementBenefits ,Retirement Benefits,raw dollars,numeric,"The total value of exclusively retirement benefits for a given plan for a given year.  Does not include healthcare benefits, death benefits, or any other non-retirement benefits that are included in total benefits. Does not include refunds or expenses"
+ActiveMemberTotal,Active Member Total,people,integer,"How many Active Members are there currently covered by the plan?  Note, DROP members are not counted as Active Members, as they are not accruing benefits"
+InactiveVestedMembers,Inactive Vested Member Total,people,integer,"How many Inactive Vested Members are currently covered by the plan.  Often referred to as ""Terminated Vested"" by plans.  Includes members that are no longer active but are not yet receiving benefits they have earned"
+InactiveNonVested,Inactive Non-Vested Member Total,people,integer,"How many Inactive Non Vested members are currently covered by the plan.  Reporting on this class of member varies widely from plan to plan and even from year to year within plans.  Some plans refer to these members as ""Terminated due Refund of Contributions""  or the like, whereas other systems act as though they do not exist."
+BeneficiariesTotal,Beneficiaries Total,people,integer,"How many Beneficiaries are currently covered by the plan.  Includes Retirees, Survivors, Long Term Disability, and other Beneficiary groups. "
+ActCostMeth_GASB,Actuarial Cost Method as per the GASB,,string,"Actuarial Cost Method is the procedure for determining the Actuarial Present Value of Benefits and Expenses, and for developing Normal Cost and Actuarial Accrued Liability.  There are a number of different methods that all differ in how/whether they calculate the above.  "
+AssetValMeth_GASB,Asset Valuation Method as per the GASB,,string,How are assets valued?  Often involves some sort of smoothing function to spread gains and losses over several years
+FundingMeth_GASB,Funding Method as per the GASB,,string,"Level Dollar or Level Percent and then Amortized on an Open (i.e infinite duration), Closed (finite duration), or Fixed basis. "
+ActuarialFirm,Actuarial Firm Name,,string,What is the Actuarial Firm that is responsible for conducting the actuarial valuation and issuing the Actuarial Valuation Report for a given plan for a given year
+StateGenFundExpenditures,State General Fund Expenditures,raw dollars,numeric,
+StateOwnSourceExpenditures,State Own Source Expenditures,raw dollars,numeric,
+StateTotalExpenditures,State Total Expenditures,raw dollars,numeric,
+GDP,GDP,raw dollars,numeric,
+InvestmentExpense_SCFNP,Investment Expenses as listed in the Schedule of Changes in Fiduciary Net Position,,,
+InvestmentExpenses,Investment Expenses as listed in the Investment Expenses Schedule,raw dollars,numeric,
+SecuritiesLendingExpense_SCFNP,Securities Lending Management Fees as listed in the schedule of changes in fiduciary net position,raw dollars,numeric,
+Professional_ConsultantFees,Professional and Consultant Fees,,,
+BrokerCommissions,Brokerage Commissions,,,
+FundedRatio_GASB,Funded Ratio using the GASB calculation methods,,percentage,"This is the plan's funded ratio, calculated as the Fiduciary Net Position divided by the Total Pension Liability.  Please note, in most cases, this funded ratio is not available prior to the change in GASB reporting requirements in 2014"
+FundedRatio_MVA,Funded Ratio using MVA in place of AVA,,percentage,"This is the plan's funded ratio, calculated as the Market Value of assets divided by the Actuarial Accrued Liability"
+MunicipalTag,Dummy variable denoting municipally administered plans.,,binary,This is a dummy variable used to distinguish between state-administered and municipally-administered plans. 0 = state administered plans and 1 = municipally administered plans.
